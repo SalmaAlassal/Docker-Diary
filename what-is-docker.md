@@ -1,3 +1,21 @@
+# Why Docker?
+
+Imagine you are a new developer in a team and you have to set up your development environment which needs
+    - Linux OS,
+    - A specific version of Java,
+    - Postgres DB,
+    - Redis,
+    - React JS,
+    - ... and many more.
+so you have to install all these dependencies on your machine and configure them properly (face it, it's a headache), and then you have to do the same on your QA machine, and then on the production server and so on.
+
+You may also face the problem of different versions of the same dependency on different machines, which may cause the application to behave differently on different machines and many more problems.
+
+So, Docker comes to the rescue!
+
+![meme](imgs/batman.jpg)
+
+
 # What is Docker?
 
 - Docker is a containerization platform that packages your application and all its dependencies together in the form of containers.
@@ -68,7 +86,7 @@ Docker is a Container Engine and not the only one, actually it’s not even the 
 
 - Here is an example of a Dockerfile:
 
-    ![Dockerfile](imgs/Dockerfile.png)
+    ![Dockerfile](imgs/docker-file-example.png)
 
 ### Docker Image
 
@@ -76,7 +94,13 @@ Docker is a Container Engine and not the only one, actually it’s not even the 
 
 - Docker image is created from the Docker-file. And the Docker-file contains instructions to include environment, framework, artifacts, configurations etc, So the Docker image actually contains all these.
 
-- A Docker image is a read-only template that contains a set of instructions for creating a container that can run on the Docker platform on any machine that has only docker installed on it. 
+- A Docker image is a read-only template that contains a set of instructions for creating a container that can run on the Docker platform on any machine that has only docker installed on it.
+
+
+- Docker images are built in layers, each representing a set of file system changes or instructions in the Dockerfile (the script used to assemble the image). Each command in a Dockerfile (such as `RUN`, `COPY`, `ADD`) creates a new layer.
+    - For example, you can have a base image with an OS, then add a layer with Python, then add a layer with your application code.
+
+![Docker Image](imgs/docker-image.png)
 
 ### Docker Container
 
