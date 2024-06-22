@@ -56,3 +56,19 @@ docker run hello-world
 ```
 
 --------------------------------------------------------------------------------
+
+# Docker-Compose Installation
+
+1. Install Docker-Compose:
+
+```bash
+sudo pacman -Syu docker-compose
+```
+
+2. Check the version of Docker Compose installed on the system.
+
+```bash
+docker-compose --version
+```
+
+--------------------------------------------------------------------------------
