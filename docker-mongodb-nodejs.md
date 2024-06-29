@@ -372,3 +372,44 @@ docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build
 To access the Mongo Express web interface, go to `http://localhost:8081` in your browser. You can log in using the username `root` and password `example`.
 
 --------------------------------------------
+
+## Docker Compose Dependencies
+
+Docker Compose does not start services in a specific order by default. However, it allows you to define dependencies between services using the `depends_on` key in the `docker-compose.yml` file.
+
+This means you can specify that one service depends on another service, and Docker Compose will start the services in the correct order.
+
+For example, if the Node.js application depends on the MongoDB database, you can define the dependency as follows:
+
+```yaml
+services:
+  express-node-app:
+    container_name: express-node-app-container
+    ports:
+      - '4000:4000'
+    env_file:
+      - .env
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - mongo-db:/data/db
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+    depends_on:
+      - mongo
+```
+--------------------------------------------
