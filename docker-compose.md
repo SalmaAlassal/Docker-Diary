@@ -56,4 +56,8 @@ services: # List of services to run.
 
 Notice that the name of the image is `nodeapp-express-node-app`. This is because the `build` key in the `docker-compose.yml` file uses the current directory name with the service name to name the image.
 
-## Example 2: Multiple Services [TODO]
+## Example 2: Multiple Services
+
+You can refer to the [Docker with MongoDB & NodeJS](docker-mongodb-nodejs.md#docker-compose-files) section for an example of a `docker-compose.yml` file with multiple services.
+
+--------------------------------------------
