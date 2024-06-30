@@ -411,5 +411,8 @@ services:
       ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
     depends_on:
       - mongo
+
+volumes:
+  mongo-db:
 ```
 --------------------------------------------
