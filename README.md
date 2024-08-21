@@ -16,6 +16,8 @@ My learning diary for Docker.
 - [Docker with MongoDB & NodeJS](docker-mongodb-nodejs.md)
 - [Docker with Nginx, MongoDB & NodeJS](docker-nginx-mongodb-nodejs.md)
 - [Pushing & Pulling Images to Docker Hub](docker-push-to-docker-hub.md)
+- [Docker Orchestration](docker-orchestration.md)
+- [Docker Swarm](docker-swarm.md)
 
 ### Quick Guides
 
