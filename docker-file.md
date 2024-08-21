@@ -46,6 +46,11 @@ CMD ["npm", "start"]
 
 - > While `RUN` is executed in the container, `COPY` is executed on the host machine.
 
+
+- `EXPOSE <port>` - Specifies the port on which the container listens for incoming connections
+    - E.g. `EXPOSE 3999` will expose port `3999` for the application inside the container
+    - > `EXPOSE` does not actually make the port accessible from the host machine. To make the port accessible, you need to use the `-p` flag with the `docker run` command. More on this later.
+
 - `CMD ["executable", "param1", "param2"]` - Specifies the command to run when the container starts
     - E.g. `CMD ["npm", "start"]` will run the `npm start` command when the container starts
     - There can only be one `CMD` instruction in a Dockerfile
@@ -93,6 +98,30 @@ CMD ["npm", "start"]
 - `npm install` installs all the dependencies listed in the `package.json` file. If the `package.json` file has not changed since the last build, Docker will use the cached layer for that step and not execute the `npm install` command again. This speeds up the build process.
 
 ![Docker Cache Mechanism](./imgs/docker-cache-mechanism.png)
+
+------------------------------------------------------------
+
+## Minimize the Number of Layers
+
+- Each instruction in a Dockerfile creates a new layer in the Docker image. Layers are like the building blocks of your Docker image. When you run docker build, each instruction (like `RUN`, `COPY`, or `ADD`) creates a new layer.
+
+- It's a good practice to minimize the number of layers in your Docker image. This is because each layer adds overhead to the image size and build time.
+
+- Fewer layers result in a smaller image size. Combining commands that can be executed together into a single statement minimizes the number of layers. This reduces redundancy and helps create a more efficient image.
+
+- For example, if you have multiple `RUN` instructions in your Dockerfile, you can combine them into a single `RUN` instruction to reduce the number of layers.
+
+**Bad Practice:**
+```Dockerfile
+RUN apk add --no-cache npm=7.17.0-r0
+RUN npm install
+```
+
+**Good Practice:**
+```Dockerfile
+RUN apk add --no-cache npm=7.17.0-r0 && \
+    npm install
+```
 
 ------------------------------------------------------------
 
