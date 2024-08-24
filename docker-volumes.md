@@ -56,9 +56,11 @@ Named volumes persist even if you remove the container that uses them. This mean
 
 ### 2. **Anonymous Volumes** `-v /some/path/in/container`
 
-Anonymous volumes are volumes that are created by Docker and **are not given a specific name**. They are created when you use the `-v` flag without specifying a name or when you use the `VOLUME` instruction in a Dockerfile.
+Anonymous volumes are created **specifically for a single container.** They are typically used when you want temporary storage that is associated with a particular container. Data stored in anonymous volumes will be deleted when the container stops.
 
-Anonymous volumes are given a random name that's guaranteed to be unique within a given Docker host. Just like named volumes, anonymous volumes persist even if you remove the container that uses them
+They are created when you use the `-v` flag without specifying a name or when you use the `VOLUME` instruction in a Dockerfile.
+
+**Anonymous volumes are given a random name** that's guaranteed to be unique within a given Docker host.
 
 ```bash
 docker run -v /app/data my-image

@@ -113,6 +113,9 @@ Commands for using bind mounts in Docker containers.
 - `docker-compose up`: Builds, (re)creates, starts, and attaches to containers for a service.
     > This command is used to start the services defined in the `docker-compose.yml` file.
 
+- `docker-compose up --build`: Builds the images before starting the services.
+    > This is useful when you have made changes to the Dockerfile or application code.
+
 - `docker-compose up -d`: Starts the services in detached mode.
     > The containers run in the background, and you can use the terminal for other commands.
 
@@ -166,4 +169,14 @@ Commands for using bind mounts in Docker containers.
 
 - `docker volume ls`: Lists all the Docker volumes on the system.
 - `docker volume prune`: Removes anonymous local volumes not used by at least one container.
+--------------------------------------------
+
+## Bridge Networks
+
+- `docker network create <network-name>`: Creates a new bridge network in Docker.
+
+- `docker network create <network-name> --subnet=<io-address>/<number> --gateway=<ip-address>`: Creates a new bridge network with a custom subnet and gateway.
+
+- `docker network rm <network-name>`: Removes a Docker network.
+
 --------------------------------------------
