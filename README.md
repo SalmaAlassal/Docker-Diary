@@ -45,6 +45,7 @@ My learning diary for Docker.
 
 - [Sysadmin with Docker](https://hamk-sysadmin-docker.github.io/exercises/):This is also a good resource to practice Docker.
 
+![meme](./imgs/meme.jpeg)
 
 ## References
 
