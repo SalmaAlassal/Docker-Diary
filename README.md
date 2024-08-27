@@ -49,5 +49,6 @@ My learning diary for Docker.
 
 ## References
 
+- [Docker Practical Course in Arabic](https://www.youtube.com/playlist?app=desktop&list=PLzNfs-3kBUJnY7Cy1XovLaAkgfjim05RR)
 - [Docker Crash Course for Absolute Beginners](https://www.youtube.com/watch?v=pg19Z8LL06w)
 - [Ahmed Ayman - Diving With the Whale - Docker Series](https://a7medayman6.github.io/blog/devops/diving-with-the-whale-docker-series/)

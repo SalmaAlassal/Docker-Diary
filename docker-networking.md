@@ -30,7 +30,7 @@ Before we explore Docker Networking in depth, let’s clarify some foundational 
     - Using the container name of the database container: `db-container-name:db-container-port`
     - Using the IP address of the database container : `db-container-ip:db-container-port` - This is not recommended as the IP address of the container can change.
     - Using the host machine IP address: `host-machine-ip:db-container-port`: Because of the port binding, the host machine listens on the host port and forwards the request to the container port.
-    - Using all available network interfaces :`0.0.0.0:db-container-port` - When you use this ip address, the service is available on all network interfaces of the host machine. This means that any machine that can reach the host machine can connect to the service using the host machine's IP address and the bound port. So in this case, the web app container can talk to the database container using the host machine's IP address and the database container's port.
+    - Using all available network interfaces :`0.0.0.0:db-container-port` - When you use this ip address, the service is available on all network interfaces of the host machine.
 
 ## Understanding `localhost` in Containers
 
